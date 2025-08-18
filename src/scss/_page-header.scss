@@ -1,0 +1,112 @@
+@use "media";
+@use "utils";
+
+.page-header {
+  @include utils.blockWrapper;
+}
+
+.page-header__content {
+  @include utils.blockContent;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-gap: 2rem;
+  grid-template-areas: "left center right" ". center .";
+  grid-template-rows: minmax(6.6rem, auto) 1fr;
+}
+
+.page-header__left {
+  grid-area: left;
+  justify-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.page-header__right {
+  grid-area: right;
+  justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.page-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page-header__nav-list-item {
+  flex-shrink: 0;
+}
+
+.page-header__nav-link {
+  display: block;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8rem;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--lightblue-color);
+    }
+  }
+
+  &:active {
+    color: #8b86b1;
+  }
+}
+
+.page-header__logo {
+  width: 24rem;
+  grid-area: center;
+  height: 10.6rem;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../images/logo-bg.svg");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.page-header__logo-image {
+  height: auto;
+  width: 13.9rem;
+}
+
+.page-header__callback-link {
+  flex-shrink: 0;
+  padding: 1.1rem 2rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8rem;
+  border-radius: 0.4rem;
+  background: #ffd900;
+  box-shadow: -0.2rem -0.2rem 0.4rem 0 #e5ac00 inset,
+    0.2rem 0.2rem 0.4rem 0 #fff3ad inset;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s, background-color 0.2s, color 0.2s;
+  color: var(--text-color);
+  &:link,
+  &:visited {
+    color: var(--text-color);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      box-shadow: 0 0 0.4rem 0 #e5ac00 inset,
+        0.2rem 0.2rem 0.4rem 0 #fff3ad inset;
+    }
+  }
+
+  &:active {
+    background: #fff099;
+    color: rgba(#1c1456, 0.24);
+    box-shadow: none;
+  }
+}

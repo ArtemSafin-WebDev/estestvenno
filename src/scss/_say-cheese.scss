@@ -1,0 +1,53 @@
+@use "media";
+@use "utils";
+
+.say-cheese {
+  @include utils.blockWrapper;
+}
+
+.say-cheese__bg {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+  align-self: flex-end;
+}
+
+.say-cheese__bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  //   min-width: 144rem;
+  max-width: none;
+}
+
+.say-cheese__content {
+  @include utils.blockContent;
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.say-cheese__image-wrapper {
+  align-self: center;
+  margin-top: auto;
+  width: 72rem;
+  max-width: 100%;
+  position: relative;
+}
+
+.say-cheese__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+}
+
+.say-cheese__text {
+  position: absolute;
+  left: 100%;
+  bottom: 14rem;
+  margin-left: -17rem;
+  width: 35.6rem;
+  height: auto;
+  transform: rotate(-15deg);
+  -webkit-user-drag: none;
+}
