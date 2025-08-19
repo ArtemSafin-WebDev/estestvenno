@@ -61,5 +61,32 @@ export default function cheese() {
         }
       });
     }
+
+    const darkBlueLayer = element.querySelector(".cheese__darkblue-layer");
+    const pinkLayer = element.querySelector(".cheese__pink-layer");
+
+    if (darkBlueLayer && pinkLayer) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "bottom-=30 bottom",
+        },
+      });
+
+      tl.from(darkBlueLayer, {
+        yPercent: -100,
+        duration: 1,
+        ease: "expo.out",
+      });
+      tl.from(
+        pinkLayer,
+        {
+          yPercent: -100,
+          duration: 1,
+          ease: "expo.out",
+        },
+        "<+=0.1"
+      );
+    }
   });
 }

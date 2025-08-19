@@ -63,5 +63,55 @@ export default function catalog() {
         setActive(btnIndex);
       });
     });
+
+    const heading = element.querySelector<HTMLElement>(".catalog__heading");
+
+    if (heading) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          scrub: true,
+          trigger: element,
+          start: "top bottom",
+          end: "bottom+=30% bottom",
+          endTrigger: heading,
+          markers: false,
+        },
+      });
+      tl.from(
+        heading,
+        {
+          rotate: -100,
+          duration: 1,
+          // autoAlpha: 0,
+        },
+        0
+      );
+
+      tl.from(
+        heading,
+        {
+          autoAlpha: 0,
+          duration: 0.3,
+        },
+        0.2
+      );
+    }
+
+    const waves = element.querySelector(".catalog__bg-image");
+
+    if (waves) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+        },
+      });
+      tl.from(waves, {
+        scaleY: 0,
+        duration: 2,
+        transformOrigin: "center bottom",
+        ease: "expo.out",
+      });
+    }
   });
 }

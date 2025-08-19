@@ -9,6 +9,11 @@ import smoothScrolling from "./smoothScrolling";
 import magnet from "./magnet";
 import productCard from "./productCard";
 import cheese from "./cheese";
+import sayCheese from "./sayCheese";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
@@ -21,8 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
   advantages();
   vacanciesSlider();
   magnet();
+  sayCheese();
 });
 
 window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
   document.body.classList.add("loaded");
 });
