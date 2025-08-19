@@ -1,0 +1,223 @@
+@use "media";
+@use "utils";
+
+.cheese {
+  padding-bottom: 5rem;
+}
+
+.cheese__wrapper {
+  @include utils.blockWrapper;
+  background-color: #009ee3;
+  border-top-left-radius: 100rem;
+  border-top-right-radius: 100rem;
+  border-bottom-left-radius: 9.6rem;
+  border-bottom-right-radius: 9.6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cheese__decor {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -30rem;
+  pointer-events: none;
+}
+
+.cheese__bg {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+}
+.cheese__content {
+  @include utils.blockContent;
+  grid-row: 1 / 2;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.cheese__circle-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.cheese__circle {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cheese__text-content {
+  margin: 0 auto;
+  margin-top: 32rem;
+  position: relative;
+  max-width: 52rem;
+  margin-bottom: 20rem;
+}
+
+.cheese__natural {
+  z-index: 5;
+  right: 0;
+  top: 0;
+  margin-right: -10rem;
+  width: 25rem;
+  position: absolute;
+  height: auto;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.cheese__tasty {
+  position: absolute;
+  left: 0;
+  width: 19rem;
+  height: auto;
+  bottom: -1rem;
+  z-index: 5;
+  margin-left: -8rem;
+}
+
+.cheese__convenient {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-15deg);
+  width: 20rem;
+  height: auto;
+  z-index: 5;
+  margin-top: 3rem;
+}
+
+.cheese__title {
+  text-align: center;
+  font-size: 6.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 6.8rem;
+  font-family: var(--bebas);
+  letter-spacing: -0.128rem;
+  text-transform: uppercase;
+}
+
+.cheese__darkblue-layer {
+  margin-top: -9.6rem;
+  height: calc(9.6rem * 2);
+  background-color: #1c1456;
+  border-bottom-left-radius: 9.6rem;
+  border-bottom-right-radius: 9.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cheese__pink-layer {
+  margin-top: -9.6rem;
+  height: calc(9.6rem + 4.8rem);
+  background-color: #f2426c;
+  border-bottom-left-radius: 9.6rem;
+  border-bottom-right-radius: 9.6rem;
+}
+
+.cheese__slider {
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  .swiper {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    &:not(:nth-child(1)) {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: calc(100% + 6rem);
+    }
+
+    &:nth-child(2) {
+      left: 0;
+      top: calc(100% + 6rem);
+
+      .cheese__slider-card-image-container {
+        transform: rotate(-15deg);
+      }
+    }
+    &:nth-child(3) {
+      top: calc(100% + 6rem);
+
+      .cheese__slider-card-image-container {
+        transform: rotate(15deg);
+      }
+    }
+    &:nth-child(4) {
+      top: calc(100% + 6rem);
+    }
+  }
+}
+
+.cheese__slider-card-image-container {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4.8rem;
+}
+
+.cheese__slider-card-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cheese__slider-card-text {
+  position: absolute;
+  width: 26.8rem;
+  height: auto;
+  z-index: 6;
+  transform: translateY(-50%) rotate(-15deg);
+  left: 0;
+  top: 50%;
+  margin-left: -15rem;
+}
+
+.cheese__slider-card-text--second {
+  position: absolute;
+  width: 33rem;
+  height: auto;
+  z-index: 6;
+  transform: translateY(-50%);
+  left: 0;
+  top: 50%;
+  margin-left: -15rem;
+  margin-top: 4rem;
+}
+.cheese__slider-card-text--third {
+  position: absolute;
+  width: 30rem;
+  height: auto;
+  z-index: 6;
+
+  left: 0;
+  top: 0;
+  margin-left: -10rem;
+  margin-top: 7rem;
+}

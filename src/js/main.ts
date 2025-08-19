@@ -8,10 +8,12 @@ import catalog from "./catalog";
 import smoothScrolling from "./smoothScrolling";
 import magnet from "./magnet";
 import productCard from "./productCard";
+import cheese from "./cheese";
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
   intro();
+  cheese();
   catalog();
   productCard();
 
