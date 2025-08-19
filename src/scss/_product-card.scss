@@ -15,6 +15,12 @@
       .product-card__shape svg {
         fill: var(--accent-color, white);
       }
+
+      .product-card__hot {
+        opacity: 1;
+        visibility: inherit;
+        transition: opacity 0.4s, visibility 0.4s;
+      }
     }
   }
 }
@@ -96,6 +102,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("../images/red-star.svg");
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
   svg {
     fill: white;
     width: 3.2rem;

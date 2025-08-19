@@ -26,7 +26,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   font-size: clamp(2px, 0.695vw, 125px);
   scrollbar-gutter: stable;
-  scroll-behavior: smooth;
   scroll-padding-top: 10rem;
   @include media.breakpoint(mobile) {
     font-size: 10px;
