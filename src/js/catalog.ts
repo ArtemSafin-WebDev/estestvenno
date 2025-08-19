@@ -63,5 +63,64 @@ export default function catalog() {
         setActive(btnIndex);
       });
     });
+
+    // Mouse parallax effect for product card decor elements
+    const productCards = Array.from(
+      element.querySelectorAll<HTMLElement>(".product-card")
+    );
+
+    productCards.forEach((card) => {
+      const decors = Array.from(
+        card.querySelectorAll<HTMLElement>(".product-card__decor")
+      );
+      if (decors.length === 0) return;
+
+      const quickTos = decors.map((decor) => {
+        // Move the inner image so the wrapper's transform (scale) remains controlled by CSS
+        const target =
+          decor.querySelector<HTMLElement>(".product-card__decor-image") ||
+          decor;
+        target.style.willChange = "transform";
+        return {
+          xTo: gsap.quickTo(target, "x", { duration: 0.4, ease: "power3.out" }),
+          yTo: gsap.quickTo(target, "y", { duration: 0.4, ease: "power3.out" }),
+        };
+      });
+
+      const getDepth = (index: number, el: HTMLElement): number => {
+        const fromAttr = el.dataset.depth ? Number(el.dataset.depth) : NaN;
+        if (!Number.isNaN(fromAttr)) return fromAttr;
+        // Reasonable defaults by layer order
+        if (index === 0) return 14;
+        if (index === 1) return 10;
+        return 6;
+      };
+
+      const onMove = (evt: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        // Normalize to [-1, 1]
+        const nx = (evt.clientX - cx) / (rect.width / 2);
+        const ny = (evt.clientY - cy) / (rect.height / 2);
+
+        decors.forEach((decor, i) => {
+          const depth = getDepth(i, decor);
+          // Invert Y so upward movement is positive visually if desired
+          quickTos[i].xTo(nx * depth);
+          quickTos[i].yTo(ny * depth);
+        });
+      };
+
+      const onLeave = () => {
+        decors.forEach((_, i) => {
+          quickTos[i].xTo(0);
+          quickTos[i].yTo(0);
+        });
+      };
+
+      card.addEventListener("mousemove", onMove);
+      card.addEventListener("mouseleave", onLeave);
+    });
   });
 }
