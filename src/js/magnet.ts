@@ -106,7 +106,9 @@ export default function magnet(): void {
 
       let targetX = 0;
       let targetY = 0;
+      item.button.classList.remove("mouse-inside");
       if (distance < config.activationDistancePx) {
+        item.button.classList.add("mouse-inside");
         // Map cursor offset into a capped translation, scaled by proximity
         const factor = config.maxTranslatePx / config.activationDistancePx;
         // Non-linear falloff for smoother feel near the edge of the radius
@@ -145,6 +147,7 @@ export default function magnet(): void {
           ease: "expo.out",
           overwrite: "auto",
         });
+        item.button.classList.remove("mouse-inside");
       }
     }
   });

@@ -83,6 +83,20 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-color: #f0f0f0;
-  border-radius: 50%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    transform: scale(0);
+  }
+}
+
+.mouse-inside .intro__slider-arrow-circle {
+  &::before {
+    transform: scale(1);
+  }
 }
