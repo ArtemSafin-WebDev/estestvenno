@@ -6,6 +6,7 @@ import advantages from "./advantages";
 import intro from "./intro";
 import catalog from "./catalog";
 import smoothScrolling from "./smoothScrolling";
+import magnet from "./magnet";
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fridgeDrag();
   advantages();
   vacanciesSlider();
+  magnet();
 });
 
 window.addEventListener("load", () => {
