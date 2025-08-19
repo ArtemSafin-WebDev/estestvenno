@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   intro();
   catalog();
   productCard();
+
   fridgeDrag();
   advantages();
   vacanciesSlider();

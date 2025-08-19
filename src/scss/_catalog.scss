@@ -147,11 +147,17 @@
   border-radius: 2.4rem;
   background: white;
   box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 32, 92, 0.12);
+  .swiper {
+    margin: 0;
+    width: auto;
+    margin: 0 -2.4rem;
+  }
 }
 
 .catalog__aside-slider-card {
   display: flex;
   flex-direction: column;
+  padding: 0 2.4rem;
 }
 
 .catalog__aside-slider-card-title {
@@ -180,6 +186,10 @@
     width: 1.6rem;
     height: 1.6rem;
     fill: var(--text-color);
+  }
+
+  &.swiper-button-disabled {
+    cursor: default;
   }
 
   &:not(.swiper-button-disabled) {
