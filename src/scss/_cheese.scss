@@ -3,6 +3,9 @@
 
 .cheese {
   padding-bottom: 5rem;
+  @include media.breakpoint(small-tablet) {
+    display: none;
+  }
 }
 
 .cheese__wrapper {

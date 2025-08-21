@@ -7,13 +7,18 @@
   padding-top: 9.6rem;
   background-color: #6aa338;
   color: white;
-  border-radius: 10rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 10rem;
+  border-top-right-radius: 10rem;
   z-index: 2;
 
   @include media.breakpoint(small-tablet) {
     padding-top: 4.8rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    padding-top: 2.4rem;
+    border-top-left-radius: 4.8rem;
+    border-top-right-radius: 4.8rem;
   }
 }
 
@@ -30,10 +35,24 @@
   width: 100%;
   margin: 0 auto;
   max-width: 114rem;
+
+  @include media.breakpoint(small-tablet) {
+    margin: 0;
+    max-width: none;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    display: block;
+    margin: 0;
+    max-width: none;
+  }
 }
 
 .fridge__bg {
   grid-area: stack;
+  @include media.breakpoint(small-mobile) {
+    display: none;
+  }
 }
 
 .fridge__bg-image {
@@ -41,6 +60,10 @@
   width: 100%;
   height: auto;
   filter: drop-shadow(2.4rem 2.4rem 9.6rem #517d2b);
+
+  @include media.breakpoint(small-tablet) {
+    filter: drop-shadow(1.4127rem 1.4127rem 5.6507rem #517d2b);
+  }
 }
 
 .fridge__draggable {
@@ -50,6 +73,16 @@
   padding: 5rem 6rem;
   padding-top: 8rem;
   padding-bottom: 3rem;
+  z-index: 7;
+
+  @include media.breakpoint(small-tablet) {
+    padding: 3.5rem;
+    padding-top: 3rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    display: none;
+  }
 }
 
 .fridge__draggable-inner {
@@ -69,8 +102,15 @@
   margin-top: 16.8rem;
   max-width: 54rem;
   color: var(--text-color);
-  z-index: 5;
+  z-index: 17;
   @include media.breakpoint(small-tablet) {
+    max-width: 43rem;
+    margin-top: 5.6rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    color: white;
+    margin: 0;
     max-width: none;
   }
 }
@@ -83,6 +123,15 @@
   letter-spacing: -0.128rem;
   text-transform: uppercase;
   font-family: var(--bebas);
+
+  @include media.breakpoint(small-tablet) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: -0.072rem;
+    text-transform: uppercase;
+  }
 }
 
 .fridge__text {
@@ -93,6 +142,15 @@
   font-family: var(--inter);
   margin-top: 0.8rem;
   max-width: 40rem;
+
+  @include media.breakpoint(small-tablet) {
+    max-width: 35rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    max-width: none;
+    margin-top: 0.8rem;
+  }
 }
 
 .fridge__tags {
@@ -103,6 +161,17 @@
   gap: 0.8rem;
   margin-top: 2.4rem;
   max-width: 40rem;
+
+  @include media.breakpoint(small-tablet) {
+    margin-top: 1.6rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+  }
 }
 
 .fridge__tag {
@@ -159,22 +228,29 @@
     }
   }
   @include media.breakpoint(small-tablet) {
-    font-size: 2.4rem;
+    font-size: 1.4802rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 2.8rem;
-    letter-spacing: -0.048rem;
-    gap: 0.8rem;
-    padding: 0.8rem;
-    border-radius: 0.8rem;
+    line-height: 1.6652rem;
+    letter-spacing: -0.0296rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5.551px;
+    box-shadow: 0 0.37rem 1.4802rem 0 rgba(0, 32, 92, 0.12);
+    gap: 0.5rem;
+    &--love {
+      background: #e54b39;
+      box-shadow: 0 0.37rem 1.48rem 0 rgba(0, 32, 92, 0.12),
+        -0.0925rem -0.0925rem 0.185rem 0 #b23a2c inset,
+        0.0925rem 0.0925rem 0.185rem 0 #ff8173 inset;
+    }
   }
 
   &:nth-child(1) {
     top: 1rem;
     left: 3.8rem;
     @include media.breakpoint(small-tablet) {
-      top: 4.7rem;
-      left: 4.9rem;
+      left: 1rem;
+      top: 6rem;
     }
   }
 
@@ -183,8 +259,8 @@
     left: 2.6rem;
     transform: rotate(-15deg);
     @include media.breakpoint(small-tablet) {
-      top: 12rem;
       left: 3rem;
+      top: 14rem;
     }
   }
 
@@ -194,8 +270,8 @@
     box-shadow: 0 0.6287rem 2.5147rem 0 rgba(0, 32, 92, 0.12);
     transform: rotate(13deg);
     @include media.breakpoint(small-tablet) {
-      top: 4rem;
-      left: 20rem;
+      left: 4rem;
+      top: 0rem;
     }
   }
 
@@ -203,16 +279,16 @@
     top: 13.2rem;
     left: 6rem;
     @include media.breakpoint(small-tablet) {
-      top: 11rem;
-      left: 15.8rem;
+      left: 0rem;
+      top: 10.8rem;
     }
   }
   &:nth-child(5) {
     top: 32rem;
     left: 10rem;
     @include media.breakpoint(small-tablet) {
-      top: 11rem;
-      left: 15.8rem;
+      top: 21rem;
+      left: 2rem;
     }
   }
 }
@@ -236,13 +312,13 @@
   color: white;
 
   @include media.breakpoint(small-tablet) {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.4rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 0.9251rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.68rem;
-    letter-spacing: -0.028rem;
+    line-height: 1.1101rem;
+    letter-spacing: -0.0185rem;
   }
 }
 
@@ -255,12 +331,9 @@
   z-index: 4;
 
   @include media.breakpoint(small-tablet) {
-    width: 8rem;
-    left: auto;
-    right: 10rem;
-    bottom: 9.3rem;
-
-    z-index: 2;
+    width: 7rem;
+    top: 11rem;
+    right: 2rem;
   }
 }
 
@@ -279,9 +352,9 @@
   transform: rotate(-15deg);
 
   @include media.breakpoint(small-tablet) {
-    width: 24rem;
-    right: 22rem;
-    bottom: 6rem;
+    width: 16rem;
+    right: 7rem;
+    bottom: 0;
   }
 }
 
@@ -306,6 +379,9 @@
   line-height: 2rem;
   font-family: var(--bebas);
   padding: 0.8rem;
+  @include media.breakpoint(small-tablet) {
+    display: none;
+  }
 }
 
 .fridge__mushroom {
@@ -315,9 +391,9 @@
   width: 9.6rem;
 
   @include media.breakpoint(small-tablet) {
-    width: 8rem;
-    right: 4.4rem;
-    bottom: 6.4rem;
+    width: 7rem;
+    top: 2rem;
+    right: 4rem;
   }
 }
 
@@ -328,9 +404,9 @@
   width: 9.6rem;
 
   @include media.breakpoint(small-tablet) {
-    width: 8rem;
-    right: 4.4rem;
-    bottom: 6.4rem;
+    width: 7rem;
+    right: 1rem;
+    top: 20rem;
   }
 }
 
@@ -355,9 +431,7 @@
   transform: rotate(15deg);
 
   @include media.breakpoint(small-tablet) {
-    width: 12rem;
-    top: 5rem;
-    right: 7.4rem;
+    display: none;
   }
 
   &::before {

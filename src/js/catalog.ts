@@ -1,7 +1,7 @@
 import Swiper from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { EffectFade, Navigation } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -18,19 +18,11 @@ export default function catalog() {
     asideSliders.forEach((slider) => {
       const container = slider.querySelector<HTMLElement>(".swiper");
       if (!container) return;
-      const prevArrow = slider.querySelector<HTMLButtonElement>(
-        ".catalog__aside-slider-arrow--prev"
-      );
-      console.log(container, prevArrow);
-      new Swiper(container, {
-        speed: 600,
 
-        // effect: "fade",
-        autoHeight: true,
-        // fadeEffect: {
-        //   crossFade: true,
-        // },
-        modules: [Navigation, EffectFade],
+      const instance = new Swiper(container, {
+        speed: 600,
+        // autoHeight: true,
+        modules: [Navigation, EffectFade, Pagination],
         navigation: {
           prevEl: slider.querySelector<HTMLButtonElement>(
             ".catalog__aside-slider-arrow--prev"
@@ -39,7 +31,17 @@ export default function catalog() {
             ".catalog__aside-slider-arrow--next"
           ),
         },
+        pagination: {
+          el: slider.querySelector<HTMLElement>(
+            ".catalog__aside-slider-pagination"
+          ),
+          clickable: true,
+        },
       });
+
+      // window.addEventListener("load", () => {
+      //   instance.updateAutoHeight(300);
+      // });
     });
 
     const tabBtns = Array.from(
@@ -113,5 +115,52 @@ export default function catalog() {
         ease: "expo.out",
       });
     }
+
+    const mainSliders = Array.from(
+      document.querySelectorAll<HTMLElement>(".catalog__main-slider")
+    );
+    let mm = gsap.matchMedia();
+    mainSliders.forEach((slider) => {
+      const container = slider.querySelector<HTMLElement>(".swiper");
+      if (!container) return;
+      mm.add("(min-width: 577px) and (max-width: 768px)", () => {
+        const instance = new Swiper(container, {
+          speed: 600,
+          modules: [Pagination],
+          centeredSlides: true,
+          slidesPerView: "auto",
+          centeredSlidesBounds: false,
+          pagination: {
+            el: slider.querySelector<HTMLElement>(
+              ".catalog__main-slider-pagination"
+            ),
+            type: "bullets",
+            clickable: true,
+          },
+        });
+
+        return () => {
+          instance.destroy();
+        };
+      });
+      mm.add("(max-width: 576px)", () => {
+        const instance = new Swiper(container, {
+          speed: 600,
+          modules: [Pagination],
+          slidesPerView: "auto",
+          pagination: {
+            el: slider.querySelector<HTMLElement>(
+              ".catalog__main-slider-pagination"
+            ),
+            type: "bullets",
+            clickable: true,
+          },
+        });
+
+        return () => {
+          instance.destroy();
+        };
+      });
+    });
   });
 }

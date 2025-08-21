@@ -1,7 +1,8 @@
 import gsap from "gsap";
+import { isTouch } from "./utils";
 
 const setMouseParallax = (container: HTMLElement, elements: HTMLElement[]) => {
-  if (elements.length === 0) return;
+  if (elements.length === 0 || isTouch()) return;
 
   const quickTos = elements.map((decor) => {
     const target = decor.querySelector<HTMLElement>("img") || decor;
