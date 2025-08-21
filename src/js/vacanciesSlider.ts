@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 import "swiper/css";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 export default function vacanciesSlider() {
   const elements = Array.from(
@@ -12,7 +12,7 @@ export default function vacanciesSlider() {
 
     new Swiper(container, {
       speed: 600,
-      modules: [Navigation],
+      modules: [Navigation, Pagination],
       navigation: {
         prevEl: element.querySelector<HTMLButtonElement>(
           ".vacancies__slider-arrow--prev"
@@ -20,6 +20,11 @@ export default function vacanciesSlider() {
         nextEl: element.querySelector<HTMLButtonElement>(
           ".vacancies__slider-arrow--next"
         ),
+      },
+      pagination: {
+        el: element.querySelector<HTMLElement>(".vacancies__slider-pagination"),
+        type: "bullets",
+        clickable: true,
       },
     });
   });

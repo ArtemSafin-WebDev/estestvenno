@@ -31,7 +31,7 @@ export default function advantages() {
       }).to(
         item,
         {
-          top: 0,
+          left: 0,
           duration: 1,
         },
         "<"

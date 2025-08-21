@@ -9,14 +9,22 @@
   grid-row: 1 / 2;
   grid-column: 1 / -1;
   align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  @include media.breakpoint(small-tablet) {
+  }
+
+  @include media.breakpoint(small-mobile) {
+  }
 }
 
 .say-cheese__bg-image {
   display: block;
   width: 100%;
   height: auto;
-  //   min-width: 144rem;
   max-width: none;
+  margin-bottom: -1px;
 }
 
 .say-cheese__content {
@@ -32,6 +40,14 @@
   width: 72rem;
   max-width: 100%;
   position: relative;
+
+  @include media.breakpoint(small-tablet) {
+    width: 48rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    width: auto;
+  }
 }
 
 .say-cheese__image {
@@ -39,6 +55,13 @@
   width: 100%;
   height: auto;
   -webkit-user-drag: none;
+  @include media.breakpoint(small-mobile) {
+    max-width: none;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .say-cheese__text {
@@ -50,4 +73,19 @@
   height: auto;
   transform: rotate(-15deg);
   -webkit-user-drag: none;
+
+  @include media.breakpoint(small-tablet) {
+    width: 22.8rem;
+    margin-left: -14rem;
+    bottom: 12rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    width: 16rem;
+    left: auto;
+    right: 0;
+    margin-left: 0;
+    margin-right: 2rem;
+    bottom: 4rem;
+  }
 }

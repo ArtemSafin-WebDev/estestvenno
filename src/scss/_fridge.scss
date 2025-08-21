@@ -11,6 +11,10 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   z-index: 2;
+
+  @include media.breakpoint(small-tablet) {
+    padding-top: 4.8rem;
+  }
 }
 
 .fridge__content {
@@ -19,37 +23,56 @@
   flex-direction: column;
 }
 
-.fridge__top {
-  padding: 18rem 22rem;
-  border-radius: 8rem;
-  background: #edffde;
-  box-shadow: 2.4rem 2.4rem 9.6rem 0 rgba(40, 61, 21, 0.24),
-    0 -9.6rem 9.6rem 0 rgba(106, 163, 56, 0.48) inset,
-    9.6rem 9.6rem 9.6rem 0 #fff inset,
-    -6.4rem 0 9.6rem 0 rgba(255, 255, 255, 0.8) inset,
-    -16rem 0 9.6rem 0 rgba(106, 163, 56, 0.48) inset;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  color: var(--text-color);
+.fridge__stack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "stack";
+  width: 100%;
+  margin: 0 auto;
+  max-width: 114rem;
+}
+
+.fridge__bg {
+  grid-area: stack;
+}
+
+.fridge__bg-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(2.4rem 2.4rem 9.6rem #517d2b);
 }
 
 .fridge__draggable {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  //   background-color: red;
+  grid-area: stack;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 6rem;
+  padding-top: 8rem;
+  padding-bottom: 3rem;
 }
 
-.fridge__top-text-content {
+.fridge__draggable-inner {
+  flex-grow: 1;
+  position: relative;
+}
+
+.fridge__text-content {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  position: relative;
-  z-index: 10;
+  grid-area: stack;
+  align-self: flex-start;
+  justify-self: center;
   pointer-events: none;
+  margin-top: 16.8rem;
+  max-width: 54rem;
+  color: var(--text-color);
+  z-index: 5;
+  @include media.breakpoint(small-tablet) {
+    max-width: none;
+  }
 }
 
 .fridge__heading {
@@ -91,11 +114,16 @@
   line-height: 1.8rem;
   font-family: var(--inter);
   border-radius: 0.4rem;
-  background: #ffd900;
-  box-shadow: -0.2rem -0.2rem 0.4rem 0 #e5ac00 inset,
-    0.2rem 0.2rem 0.4rem 0 #fff3ad inset;
-  color: var(--text-color);
+  background: #009ee3;
+  box-shadow: -0.2rem -0.2rem 0.8rem 0 #006996 inset,
+    0.2rem 0.2rem 0.8rem 0 #80d8ff inset;
+  color: white;
+
   flex-shrink: 0;
+  &:link,
+  &:visited {
+    color: white;
+  }
 }
 
 .fridge__labels {
@@ -103,7 +131,7 @@
 }
 .fridge__label {
   position: absolute;
-  padding: 1.2rem;
+  padding: 1rem 1.2rem;
   border-radius: 1.2rem;
   background: white;
   box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 32, 92, 0.12);
@@ -116,28 +144,76 @@
   color: var(--text-color);
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
+
+  &--love {
+    background: #e54b39;
+    box-shadow: 0 0.6287rem 2.5147rem 0 rgba(0, 32, 92, 0.12),
+      -0.1572rem -0.1572rem 0.3143rem 0 #b23a2c inset,
+      0.1572rem 0.1572rem 0.3143rem 0 #ff8173 inset;
+    color: white;
+
+    .fridge__label-number {
+      color: var(--text-color);
+      background-image: url("../images/love.svg");
+    }
+  }
+  @include media.breakpoint(small-tablet) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+    letter-spacing: -0.048rem;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+  }
 
   &:nth-child(1) {
-    top: 5rem;
-    left: 6.2rem;
+    top: 1rem;
+    left: 3.8rem;
+    @include media.breakpoint(small-tablet) {
+      top: 4.7rem;
+      left: 4.9rem;
+    }
   }
 
   &:nth-child(2) {
-    top: 22.4rem;
-    left: 4.6rem;
+    top: 22.5rem;
+    left: 2.6rem;
     transform: rotate(-15deg);
+    @include media.breakpoint(small-tablet) {
+      top: 12rem;
+      left: 3rem;
+    }
   }
 
   &:nth-child(3) {
-    left: 27.6rem;
-    top: 6rem;
+    left: 28.6rem;
+    top: 1.5rem;
+    box-shadow: 0 0.6287rem 2.5147rem 0 rgba(0, 32, 92, 0.12);
     transform: rotate(13deg);
+    @include media.breakpoint(small-tablet) {
+      top: 4rem;
+      left: 20rem;
+    }
   }
 
   &:nth-child(4) {
-    top: 15.2rem;
-    left: 12rem;
+    top: 13.2rem;
+    left: 6rem;
+    @include media.breakpoint(small-tablet) {
+      top: 11rem;
+      left: 15.8rem;
+    }
+  }
+  &:nth-child(5) {
+    top: 32rem;
+    left: 10rem;
+    @include media.breakpoint(small-tablet) {
+      top: 11rem;
+      left: 15.8rem;
+    }
   }
 }
 
@@ -155,16 +231,37 @@
   font-family: var(--bebas);
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("../images/green-star.svg");
+  background-image: url("../images/fridge-blue-star.svg");
   background-position: center;
   color: white;
+
+  @include media.breakpoint(small-tablet) {
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.68rem;
+    letter-spacing: -0.028rem;
+  }
 }
 
 .fridge__antibiotics {
   position: absolute;
-  left: 11rem;
-  bottom: 12rem;
+  right: 15rem;
+  bottom: 15rem;
   width: 9.6rem;
+
+  z-index: 4;
+
+  @include media.breakpoint(small-tablet) {
+    width: 8rem;
+    left: auto;
+    right: 10rem;
+    bottom: 9.3rem;
+
+    z-index: 2;
+  }
 }
 
 .fridge__antibiotics-image {
@@ -174,26 +271,18 @@
   -webkit-user-drag: none;
 }
 
-.fridge__heart {
-  width: 15rem;
-  position: absolute;
-  left: 20rem;
-  bottom: 18rem;
-  transform: rotate(-15deg);
-}
-.fridge__heart-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  -webkit-user-drag: none;
-}
-
 .fridge__slogan {
   position: absolute;
-  width: 36rem;
-  bottom: 7rem;
-  right: 4rem;
+  width: 27rem;
+  bottom: 4rem;
+  right: 17rem;
   transform: rotate(-15deg);
+
+  @include media.breakpoint(small-tablet) {
+    width: 24rem;
+    right: 22rem;
+    bottom: 6rem;
+  }
 }
 
 .fridge__slogan-image {
@@ -203,14 +292,55 @@
   -webkit-user-drag: none;
 }
 
-.fridge__veggies {
+.fridge__message {
   position: absolute;
-  right: 11rem;
-  bottom: 25rem;
-  width: 9.6rem;
+  right: 4rem;
+  bottom: 2rem;
+  border-radius: 0.8rem;
+  background: white;
+  box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 32, 92, 0.12);
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2rem;
+  font-family: var(--bebas);
+  padding: 0.8rem;
 }
 
-.fridge__veggies-image {
+.fridge__mushroom {
+  position: absolute;
+  top: 21rem;
+  right: 18rem;
+  width: 9.6rem;
+
+  @include media.breakpoint(small-tablet) {
+    width: 8rem;
+    right: 4.4rem;
+    bottom: 6.4rem;
+  }
+}
+
+.fridge__tomato {
+  position: absolute;
+  top: 23rem;
+  right: 5rem;
+  width: 9.6rem;
+
+  @include media.breakpoint(small-tablet) {
+    width: 8rem;
+    right: 4.4rem;
+    bottom: 6.4rem;
+  }
+}
+
+.fridge__tomato-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fridge__mushroom-image {
   display: block;
   width: 100%;
   height: auto;
@@ -218,11 +348,17 @@
 
 .fridge__photo {
   position: absolute;
-  top: 6.4rem;
-  right: 15rem;
+  top: 3.4rem;
+  right: 6rem;
   width: 14.4rem;
-  height: 14.4rem;
+  aspect-ratio: 1 / 1;
   transform: rotate(15deg);
+
+  @include media.breakpoint(small-tablet) {
+    width: 12rem;
+    top: 5rem;
+    right: 7.4rem;
+  }
 
   &::before {
     content: "";
@@ -244,12 +380,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 4.8rem;
-}
-
-.ridge__bottom {
-  padding-bottom: 9.6rem;
-}
-
-.fridge__bottom {
+  border-radius: 2.4rem;
 }

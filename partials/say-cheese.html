@@ -1,6 +1,10 @@
 <section class="say-cheese">
     <div class="say-cheese__bg">
-        <img src="/images/cheese-bg.svg" alt="" class="say-cheese__bg-image">
+        <picture>
+            <source srcset="/images/cheese-bg-mobile.svg" media="(max-width: 576px)" />
+            <source srcset="/images/cheese-bg-tablet.svg" media="(max-width: 768px)" />
+            <img src="/images/cheese-bg.svg" alt="" class="say-cheese__bg-image">
+        </picture>
     </div>
     <div class="say-cheese__content">
         <div class="say-cheese__image-wrapper">

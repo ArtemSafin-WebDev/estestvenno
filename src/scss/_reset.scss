@@ -27,7 +27,10 @@ html {
   font-size: clamp(2px, 0.695vw, 125px);
   scrollbar-gutter: stable;
   scroll-padding-top: 10rem;
-  @include media.breakpoint(mobile) {
+  @include media.breakpoint(small-tablet) {
+    font-size: 10px;
+  }
+  @include media.breakpoint(small-mobile) {
     font-size: 10px;
   }
 }
@@ -41,6 +44,7 @@ body {
   overscroll-behavior: none;
   font-family: var(--inter);
   color: var(--text-color);
+  background-color: #fffcf5;
 }
 
 body.menu-open,
@@ -227,4 +231,9 @@ select:-webkit-autofill:focus {
   flex-direction: column;
   overflow-x: hidden;
   overflow-x: clip;
+}
+
+picture,
+source {
+  display: contents;
 }

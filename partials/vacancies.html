@@ -2,15 +2,15 @@
     <div class="vacancies__content">
         <div class="vacancies__card">
             <h2 class="vacancies__card-title">
-                «Внимание к<br> деталям, стремление к&nbsp;идеалу»
+                &laquo;Внимание к&nbsp;деталям, стремление к&nbsp;идеалу&raquo;
             </h2>
             <h3 class="vacancies__card-subtitle">
-                — этого мы ждём от себя и друг от друга.
+                &mdash;&nbsp;этого мы&nbsp;ждём от&nbsp;себя и&nbsp;друг от&nbsp;друга.
             </h3>
             <div class="vacancies__card-row">
                 <div class="vacancies__card-hr">
                     <div class="vacancies__card-hr-text">
-                        Наш HR всегда на связи и готов пообщаться с вами в телеграм:
+                        Наш HR&nbsp;всегда на&nbsp;связи и&nbsp;готов общаться в&nbsp;телеграм:
                     </div>
                     <div class="vacancies__card-hr-goo-wrapper">
                         <a href="#" class="vacancies__card-hr-email" data-text="@estestvenno_hr">
@@ -23,8 +23,7 @@
                         </a>
                     </div>
                     <div class="vacancies__card-hr-text">
-                        Или посмотрите больше<br>
-                        вакансии на <a href="#">
+                        Наши вакансии на <a href="#">
                             hh.ru
                             <svg width="14" height="14" aria-hidden="true">
                                 <use xlink:href="#small-arrow"></use>
@@ -33,13 +32,17 @@
                     </div>
                 </div>
                 <a href="#" class="vacancies__card-button">
-                    Заполнить<br> анкету
+                    {{> vacancies-star }}
+                    <span class="vacancies__card-button-text">
+                        Заполнить<br> анкету
+                    </span>
+
                 </a>
             </div>
         </div>
         <div class="vacancies__slider js-vacancies-slider">
-            <button class="vacancies__slider-arrow vacancies__slider-arrow--prev">
-                <span class="vacancies__slider-arrow-circle">
+            <button class="vacancies__slider-arrow vacancies__slider-arrow--prev js-magnet-btn">
+                <span class="vacancies__slider-arrow-circle js-magnet-btn-element">
 
                 </span>
                 <svg width="14" height="14" aria-hidden="true">
@@ -51,22 +54,29 @@
                     <div class="swiper-slide">
                         <div class="vacancies__slider-card">
                             <img src="/images/vacancies.webp" alt="" class="vacancies__slider-card-image">
+                            <img src="/images/atmosphere.svg" alt="Атмосфера - творческая"
+                                class="vacancies__slider-card-text">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="vacancies__slider-card">
                             <img src="/images/vacancies.webp" alt="" class="vacancies__slider-card-image">
+                            <img src="/images/atmosphere.svg" alt="Атмосфера - творческая"
+                                class="vacancies__slider-card-text">
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="vacancies__slider-card">
                             <img src="/images/vacancies.webp" alt="" class="vacancies__slider-card-image">
+                            <img src="/images/atmosphere.svg" alt="Атмосфера - творческая"
+                                class="vacancies__slider-card-text">
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="vacancies__slider-arrow vacancies__slider-arrow--next">
-                <span class="vacancies__slider-arrow-circle">
+            <div class="vacancies__slider-pagination"></div>
+            <button class="vacancies__slider-arrow vacancies__slider-arrow--next js-magnet-btn">
+                <span class="vacancies__slider-arrow-circle js-magnet-btn-element">
 
                 </span>
                 <svg width="14" height="14" aria-hidden="true">

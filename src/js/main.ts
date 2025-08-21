@@ -12,6 +12,8 @@ import cheese from "./cheese";
 import sayCheese from "./sayCheese";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import vacanciesBtn from "./vacanciesBtn";
+import team from "./team";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,12 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
   cheese();
   catalog();
   productCard();
-
   fridgeDrag();
   advantages();
+  team();
   vacanciesSlider();
-  magnet();
+  vacanciesBtn();
   sayCheese();
+  magnet();
 });
 
 window.addEventListener("load", () => {
