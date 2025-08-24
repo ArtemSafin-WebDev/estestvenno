@@ -102,6 +102,12 @@
       0.2rem 0.2rem 0.8rem 0 #80d8ff inset;
     color: white;
   }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:not(.active):hover {
+      background: #f2f2f2;
+    }
+  }
 }
 
 .catalog__wrapper {
