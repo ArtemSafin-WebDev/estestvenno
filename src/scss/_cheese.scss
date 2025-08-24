@@ -3,6 +3,7 @@
 
 .cheese {
   padding-bottom: 5rem;
+
   @include media.breakpoint(small-tablet) {
     display: none;
   }
@@ -16,7 +17,7 @@
   border-bottom-left-radius: 9.6rem;
   border-bottom-right-radius: 9.6rem;
   position: relative;
-  z-index: 2;
+  z-index: 4;
 }
 
 .cheese__decor {
@@ -54,7 +55,7 @@
 
 .cheese__text-content {
   margin: 0 auto;
-  margin-top: 32rem;
+  margin-top: 28rem;
   position: relative;
   max-width: 52rem;
   margin-bottom: 20rem;
@@ -111,22 +112,51 @@
   border-bottom-left-radius: 9.6rem;
   border-bottom-right-radius: 9.6rem;
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .cheese__pink-layer {
   margin-top: -9.6rem;
   height: calc(9.6rem + 4.8rem);
-  background-color: #f2426c;
+  background-color: #e54b39;
   border-bottom-left-radius: 9.6rem;
   border-bottom-right-radius: 9.6rem;
+  z-index: 2;
+  position: relative;
+}
+
+.cheese__waves {
+  padding-top: 9.6rem;
+  margin-top: -9.6rem;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 9.7rem;
+
+    background-color: #ffcc66;
+  }
+}
+
+.cheese__waves-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .cheese__slider {
   max-width: 48rem;
   margin: 0 auto;
+
   position: relative;
   width: 100%;
+  aspect-ratio: 1 / 1;
 
   .swiper {
     overflow: visible;
@@ -144,34 +174,41 @@
     display: flex;
     flex-direction: column;
     height: auto;
-
-    &:not(:nth-child(1)) {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      left: 0;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    &:nth-child(odd) {
+      transform: translateX(calc(50% + 6rem));
       width: 100%;
-      top: calc(100% + 6rem);
     }
 
-    &:nth-child(2) {
-      left: 0;
-      top: calc(100% + 6rem);
+    &:nth-child(even) {
+      transform: translateX(calc(-50% - 6rem));
 
-      .cheese__slider-card-image-container {
-        transform: rotate(-15deg);
-      }
+      width: 100%;
     }
-    &:nth-child(3) {
-      top: calc(100% + 6rem);
 
-      .cheese__slider-card-image-container {
-        transform: rotate(15deg);
-      }
-    }
-    &:nth-child(4) {
-      top: calc(100% + 6rem);
-    }
+    // &:nth-child(2) {
+    //   left: 0;
+    //   top: calc(100% + 6rem);
+
+    //   .cheese__slider-card-image-container {
+    //     transform: rotate(-15deg);
+    //   }
+    // }
+    // &:nth-child(3) {
+    //   top: calc(100% + 6rem);
+
+    //   .cheese__slider-card-image-container {
+    //     transform: rotate(15deg);
+    //   }
+    // }
+    // &:nth-child(4) {
+    //   top: calc(100% + 6rem);
+    // }
   }
 }
 
@@ -180,6 +217,11 @@
   overflow: hidden;
   position: relative;
   border-radius: 4.8rem;
+
+  .cheese__slider-card--burn &,
+  .cheese__slider-card--save-world & {
+    transform: rotate(-15deg);
+  }
 }
 
 .cheese__slider-card-image {
@@ -200,27 +242,27 @@
   left: 0;
   top: 50%;
   margin-left: -15rem;
-}
 
-.cheese__slider-card-text--second {
-  position: absolute;
-  width: 33rem;
-  height: auto;
-  z-index: 6;
-  transform: translateY(-50%);
-  left: 0;
-  top: 50%;
-  margin-left: -15rem;
-  margin-top: 4rem;
-}
-.cheese__slider-card-text--third {
-  position: absolute;
-  width: 30rem;
-  height: auto;
-  z-index: 6;
+  .cheese__slider-card--save-world & {
+    position: absolute;
+    width: 33rem;
+    transform: translateY(-50%) rotate(-15deg);
+    margin-left: -15rem;
+    margin-top: 4rem;
+  }
 
-  left: 0;
-  top: 0;
-  margin-left: -10rem;
-  margin-top: 7rem;
+  .cheese__slider-card--burn & {
+    width: 30rem;
+    margin-left: -10rem;
+    margin-top: 7rem;
+  }
+
+  .cheese__slider-card--formats & {
+    width: 32rem;
+    bottom: 9rem;
+    right: 0;
+    top: auto;
+    left: auto;
+    transform: translateX(50%);
+  }
 }

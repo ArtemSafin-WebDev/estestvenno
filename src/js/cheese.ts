@@ -12,7 +12,7 @@ export default function cheese() {
     const slider = element.querySelector(".cheese__slider");
     if (slider) {
       const items = Array.from(
-        slider.querySelectorAll<HTMLElement>(".swiper-slide:not(:first-child)")
+        slider.querySelectorAll<HTMLElement>(".swiper-slide")
       );
       const firstChildText = slider.querySelector(
         ".swiper-slide:first-child .cheese__slider-card-text"
@@ -29,14 +29,8 @@ export default function cheese() {
         },
       });
 
-      if (firstChildText) {
-        tl.to(firstChildText, {
-          autoAlpha: 0,
-          duration: 0.5,
-        });
-      }
-
       items.forEach((item, itemIndex) => {
+        // const isEven = (itemIndex + 1) % 2 === 0;
         const text = item.querySelector(".cheese__slider-card-text");
         tl.to(item, {
           autoAlpha: 1,
@@ -44,7 +38,7 @@ export default function cheese() {
         }).to(
           item,
           {
-            top: 0,
+            x: 0,
             duration: 1,
           },
           "<"
@@ -64,28 +58,50 @@ export default function cheese() {
 
     const darkBlueLayer = element.querySelector(".cheese__darkblue-layer");
     const pinkLayer = element.querySelector(".cheese__pink-layer");
+    const waves = element.querySelector(".cheese__waves");
+    const wavesImage = element.querySelector(".cheese__waves-image");
 
-    if (darkBlueLayer && pinkLayer) {
+    if (darkBlueLayer && pinkLayer && waves) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: element,
-          start: "bottom-=30 bottom",
+          start: "bottom-=17% bottom",
+          markers: false,
         },
       });
 
       tl.from(darkBlueLayer, {
         yPercent: -100,
-        duration: 1,
-        ease: "expo.out",
+        duration: 0.7,
+        ease: "power2.out",
       });
       tl.from(
         pinkLayer,
         {
           yPercent: -100,
-          duration: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        },
+        "<+=0.2"
+      );
+      tl.from(
+        waves,
+        {
+          yPercent: -100,
+          duration: 0.7,
+          ease: "power2.out",
+        },
+        "<+=0.2"
+      );
+      tl.from(
+        wavesImage,
+        {
+          scaleY: 0,
+          duration: 1.5,
+          transformOrigin: "center top",
           ease: "expo.out",
         },
-        "<+=0.1"
+        "<"
       );
     }
   });
