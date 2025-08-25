@@ -31,9 +31,15 @@
   border-radius: 50%;
   margin-bottom: 3.2rem;
   margin-top: -45rem;
+  max-width: 100%;
 
   @include media.breakpoint(small-tablet) {
-    display: none;
+    width: 50rem;
+    margin-top: -30rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    margin-top: -22rem;
   }
 }
 
@@ -44,6 +50,12 @@
   line-height: 1.8rem;
   align-self: center;
   margin-bottom: 6.4rem;
+  @include media.breakpoint(small-tablet) {
+    margin-bottom: 4.8rem;
+  }
+  @include media.breakpoint(small-mobile) {
+    margin-bottom: 4rem;
+  }
 }
 
 .catalog__heading-image {

@@ -1,53 +1,120 @@
 <header class="page-header">
     <div class="page-header__content">
-        <div class="page-header__left">
-            <ul class="page-header__nav-list">
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Наша концепция
+        <button class="page-header__menu-open">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="page-header__menu">
+            <div class="page-header__menu-inner">
+
+
+                <div class="page-header__menu-header">
+                    <button class="page-header__menu-close">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <a href="#" class="page-header__menu-logo">
+                        {{> logo }}
                     </a>
-                </li>
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Продукция
+                    <a href="#" class="page-header__mobile-callback-btn">
+                        Связаться
                     </a>
-                </li>
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        О бренде
+                </div>
+                <div class="page-header__left">
+                    <ul class="page-header__nav-list">
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Наша концепция
+                            </a>
+                        </li>
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Продукция
+                            </a>
+                        </li>
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                О бренде
+                            </a>
+                        </li>
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Где купить
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-header__right">
+                    <ul class="page-header__nav-list">
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Работа у нас
+                            </a>
+                        </li>
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Партнёрам
+                            </a>
+                        </li>
+                        <li class="page-header__nav-list-item">
+                            <a href="#" class="page-header__nav-link">
+                                Контакты
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="page-header__callback-link">
+                        Связаться
                     </a>
-                </li>
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Где купить
+                </div>
+                <div class="page-header__menu-social">
+                    <ul class="page-header__menu-social-list">
+                        <li class="page-header__menu-social-list-item">
+                            <a href="#" class="page-header__menu-social-link">
+                                Вконтакте
+                                <svg width="14" height="14" aria-hidden="true">
+                                    <use xlink:href="#small-arrow"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page-header__menu-social-list-item">
+                            <a href="#" class="page-header__menu-social-link">
+                                Телеграм
+                                <svg width="14" height="14" aria-hidden="true">
+                                    <use xlink:href="#small-arrow"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="page-header__menu-social-list-item">
+                            <a href="#" class="page-header__menu-social-link">
+                                TikTok
+                                <svg width="14" height="14" aria-hidden="true">
+                                    <use xlink:href="#small-arrow"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-header__menu-bottom">
+                    <a href="#" class="page-header__menu-policy">
+                        Политика обработки персональных данных
+                        <svg width="14" height="14" aria-hidden="true">
+                            <use xlink:href="#small-arrow"></use>
+                        </svg>
                     </a>
-                </li>
-            </ul>
+                    <div class="page-header__menu-copyright">
+                        © Естественно, все права защищены.
+                    </div>
+                </div>
+            </div>
         </div>
         <a href="#" class="page-header__logo">
-            <img src="/images/logo.svg" alt="" class="page-header__logo-image">
+            {{> logo }}
         </a>
-        <div class="page-header__right">
-            <ul class="page-header__nav-list">
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Работа у нас
-                    </a>
-                </li>
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Партнёрам
-                    </a>
-                </li>
-                <li class="page-header__nav-list-item">
-                    <a href="#" class="page-header__nav-link">
-                        Контакты
-                    </a>
-                </li>
-            </ul>
-            <a href="#" class="page-header__callback-link">
-                Связаться
-            </a>
-        </div>
+        <a href="#" class="page-header__mobile-callback-btn">
+            Связаться
+        </a>
+
     </div>
 </header>

@@ -14,6 +14,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import vacanciesBtn from "./vacanciesBtn";
 import team from "./team";
+import menu from "./menu";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   vacanciesBtn();
   sayCheese();
   magnet();
+  menu();
 });
 
 window.addEventListener("load", () => {

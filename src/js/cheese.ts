@@ -1,5 +1,9 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { Pagination, EffectFade } from "swiper/modules";
+import Swiper from "swiper";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,48 +13,71 @@ export default function cheese() {
   );
 
   elements.forEach((element) => {
+    let mm = gsap.matchMedia();
     const slider = element.querySelector(".cheese__slider");
-    if (slider) {
-      const items = Array.from(
-        slider.querySelectorAll<HTMLElement>(".swiper-slide")
-      );
+    const container = element.querySelector<HTMLElement>(".swiper");
+    if (slider && container) {
+      mm.add("(min-width: 577px)", () => {
+        const items = Array.from(
+          slider.querySelectorAll<HTMLElement>(".swiper-slide")
+        );
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: slider,
-          start: "bottom+=20% bottom",
-          end: () => `center+=${100 * items.length}% center`,
-          pin: ".pin-wrapper-first",
-          pinSpacing: true,
-          markers: false,
-          scrub: true,
-        },
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: slider,
+            start: "bottom+=20% bottom",
+            end: () => `center+=${100 * items.length}% center`,
+            pin: ".pin-wrapper-first",
+            pinSpacing: true,
+            markers: false,
+            scrub: true,
+          },
+        });
+
+        items.forEach((item, itemIndex) => {
+          const text = item.querySelector(".cheese__slider-card-text");
+          tl.to(item, {
+            autoAlpha: 1,
+            duration: 0.5,
+          }).to(
+            item,
+            {
+              x: 0,
+              duration: 1,
+            },
+            "<"
+          );
+          if (itemIndex + 1 < items.length) {
+            tl.to(
+              text,
+              {
+                autoAlpha: 0,
+                duration: 0.4,
+              },
+              "-=0.1"
+            );
+          }
+        });
       });
 
-      items.forEach((item, itemIndex) => {
-        // const isEven = (itemIndex + 1) % 2 === 0;
-        const text = item.querySelector(".cheese__slider-card-text");
-        tl.to(item, {
-          autoAlpha: 1,
-          duration: 0.5,
-        }).to(
-          item,
-          {
-            x: 0,
-            duration: 1,
+      mm.add("(max-width: 576px)", () => {
+        const instance = new Swiper(container, {
+          speed: 600,
+          modules: [Pagination, EffectFade],
+          effect: "fade",
+          fadeEffect: {
+            crossFade: true,
           },
-          "<"
-        );
-        if (itemIndex + 1 < items.length) {
-          tl.to(
-            text,
-            {
-              autoAlpha: 0,
-              duration: 0.4,
-            },
-            "-=0.1"
-          );
-        }
+          pagination: {
+            el: slider.querySelector<HTMLElement>(".cheese__slider-pagination"),
+            type: "bullets",
+            clickable: true,
+          },
+        });
+
+        return () => {
+          instance.destroy();
+        };
       });
     }
 

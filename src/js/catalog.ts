@@ -19,7 +19,7 @@ export default function catalog() {
       const container = slider.querySelector<HTMLElement>(".swiper");
       if (!container) return;
 
-      const instance = new Swiper(container, {
+      new Swiper(container, {
         speed: 600,
         // autoHeight: true,
         modules: [Navigation, EffectFade, Pagination],
@@ -38,10 +38,6 @@ export default function catalog() {
           clickable: true,
         },
       });
-
-      // window.addEventListener("load", () => {
-      //   instance.updateAutoHeight(300);
-      // });
     });
 
     const tabBtns = Array.from(

@@ -1,7 +1,7 @@
 import Swiper from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { EffectFade, Navigation } from "swiper/modules";
+import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import setMouseParallax from "./mouseParallax";
 
 export default function intro() {
@@ -16,7 +16,11 @@ export default function intro() {
       fadeEffect: {
         crossFade: true,
       },
-      modules: [Navigation, EffectFade],
+      pagination: {
+        el: element.querySelector<HTMLElement>(".intro__slider-pagination"),
+        clickable: true,
+      },
+      modules: [Navigation, EffectFade, Pagination],
       navigation: {
         prevEl: element.querySelector<HTMLButtonElement>(
           ".intro__slider-arrow--prev"
