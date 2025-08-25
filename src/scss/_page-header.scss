@@ -86,27 +86,29 @@
   font-weight: 500;
   line-height: 1.8rem;
   border-radius: 0.4rem;
-  background: #ffd900;
-  box-shadow: -0.2rem -0.2rem 0.4rem 0 #e5ac00 inset,
-    0.2rem 0.2rem 0.4rem 0 #fff3ad inset;
+
+  background: #009ee3;
+  box-shadow: -0.2rem -0.2rem 0.4rem 0 #006996 inset,
+    0.2rem 0.2rem 0.4rem 0 #80d8ff inset;
   flex-shrink: 0;
   transition: box-shadow 0.2s, background-color 0.2s, color 0.2s;
-  color: var(--text-color);
+  color: white;
   &:link,
   &:visited {
-    color: var(--text-color);
+    color: white;
   }
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      box-shadow: 0 0 0.4rem 0 #e5ac00 inset,
-        0.2rem 0.2rem 0.4rem 0 #fff3ad inset;
+      background: #009ee3;
+      box-shadow: 0 0 0.4rem 0 #006996 inset,
+        0.2rem 0.2rem 0.4rem 0 #80d8ff inset;
     }
   }
 
   &:active {
-    background: #fff099;
-    color: rgba(#1c1456, 0.24);
+    background: #b2e8ff;
+    color: rgba(124, 138, 187, 1);
     box-shadow: none;
   }
 }

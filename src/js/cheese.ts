@@ -20,7 +20,7 @@ export default function cheese() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: slider,
-          start: "center center",
+          start: "bottom+=20% bottom",
           end: () => `center+=${100 * items.length}% center`,
           pin: element,
           pinSpacing: true,
