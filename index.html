@@ -8,12 +8,16 @@
   <body>
     {{> header }}
     <main class="page-main">
-      {{> intro }}
-      {{> cheese }}
+      <div class="pin-wrapper-first">
+        {{> intro }}
+        {{> cheese }}
+      </div>
       {{> catalog }}
-      {{> fridge }}
-      {{> advantages }}
-      {{> team }}
+      <div class="pin-wrapper-second">
+        {{> fridge }}
+        {{> advantages }}
+        {{> team }}
+      </div>
       {{> vacancies }}
       {{> contacts }}
       {{> say-cheese }}

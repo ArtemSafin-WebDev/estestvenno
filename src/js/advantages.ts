@@ -26,10 +26,10 @@ export default function advantages() {
       if (items.length > 1) {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: element,
-            start: "top+=100 top",
-            end: () => `top+=${66 * items.length}% top`,
-            pin: true,
+            trigger: slider,
+            start: "center center",
+            end: () => `center+=${100 * items.length}% center`,
+            pin: ".pin-wrapper-second",
             pinSpacing: true,
             markers: false,
             scrub: true,

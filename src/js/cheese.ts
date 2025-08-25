@@ -14,15 +14,13 @@ export default function cheese() {
       const items = Array.from(
         slider.querySelectorAll<HTMLElement>(".swiper-slide")
       );
-      const firstChildText = slider.querySelector(
-        ".swiper-slide:first-child .cheese__slider-card-text"
-      );
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: slider,
           start: "bottom+=20% bottom",
           end: () => `center+=${100 * items.length}% center`,
-          pin: element,
+          pin: ".pin-wrapper-first",
           pinSpacing: true,
           markers: false,
           scrub: true,
