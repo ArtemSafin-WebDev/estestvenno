@@ -20,6 +20,7 @@ import modals from "./modals";
 import forms from "./forms";
 import clearInputBtns from "./clearInputBtns";
 import fileUpload from "./fileUpload";
+import stickyCatalogNav from "./stickyCatalogNav";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fixedHeader();
   intro();
   cheese();
+  stickyCatalogNav();
   catalog();
   productCard();
   fridgeDrag();
