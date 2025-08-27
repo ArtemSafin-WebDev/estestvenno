@@ -160,10 +160,11 @@
   justify-content: center;
   gap: 0.8rem;
   margin-top: 2.4rem;
-  max-width: 40rem;
+  max-width: 45rem;
 
   @include media.breakpoint(small-tablet) {
     margin-top: 1.6rem;
+    max-width: 40rem;
   }
 
   @include media.breakpoint(small-mobile) {

@@ -4,18 +4,16 @@
 .intro {
   @include utils.blockWrapper;
   margin-bottom: 37rem;
-  padding-top: 4.8rem;
+  padding-top: 15.4rem;
 
   @include media.breakpoint(small-tablet) {
-    padding-top: 18.6rem;
-
-    padding-top: 8rem;
+    padding-top: 18rem;
     margin-bottom: 24rem;
   }
 
   @include media.breakpoint(small-mobile) {
+    padding-top: 13.6rem;
     margin-bottom: 13rem;
-    padding-top: 4rem;
   }
 }
 

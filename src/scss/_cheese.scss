@@ -250,7 +250,7 @@
 }
 
 .cheese__slider {
-  @include media.breakpointMF(tablet) {
+  @include media.breakpointMF(mobile) {
     max-width: 48rem;
     margin: 0 auto;
     position: relative;

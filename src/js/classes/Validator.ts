@@ -25,7 +25,7 @@ type Localization = {
 
 const defaultLocalization: Localization = {
   ru: {
-    requiredField: "Обязательное поле",
+    requiredField: "Заполните это поле, чтобы мы познакомились поближе",
     emailField: "Введите корректный E-mail",
     alphanumericField: "Разрешены только цифры и буквы",
     phoneField: "Введите правильный номер телефона",

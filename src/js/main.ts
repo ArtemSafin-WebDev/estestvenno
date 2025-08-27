@@ -15,11 +15,17 @@ import { ScrollTrigger } from "gsap/all";
 import vacanciesBtn from "./vacanciesBtn";
 import team from "./team";
 import menu from "./menu";
+import fixedHeader from "./fixedHeader";
+import modals from "./modals";
+import forms from "./forms";
+import clearInputBtns from "./clearInputBtns";
+import fileUpload from "./fileUpload";
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
+  fixedHeader();
   intro();
   cheese();
   catalog();
@@ -32,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
   sayCheese();
   magnet();
   menu();
+  modals();
+  fileUpload();
+  forms();
+  clearInputBtns();
 });
 
 window.addEventListener("load", () => {
