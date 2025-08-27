@@ -13,6 +13,7 @@ export default function intro() {
       speed: 600,
       longSwipesRatio: 0.2,
       effect: "fade",
+      loop: true,
       fadeEffect: {
         crossFade: true,
       },

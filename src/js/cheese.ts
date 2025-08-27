@@ -16,6 +16,10 @@ export default function cheese() {
     let mm = gsap.matchMedia();
     const slider = element.querySelector(".cheese__slider");
     const container = element.querySelector<HTMLElement>(".swiper");
+    const darkBlueLayer = element.querySelector(".cheese__darkblue-layer");
+    const pinkLayer = element.querySelector(".cheese__pink-layer");
+    const waves = element.querySelector(".cheese__waves");
+    const wavesImage = element.querySelector(".cheese__waves-image");
     if (slider && container) {
       mm.add("(min-width: 577px)", () => {
         const items = Array.from(
@@ -26,7 +30,7 @@ export default function cheese() {
           scrollTrigger: {
             trigger: slider,
             start: "bottom+=20% bottom",
-            end: () => `center+=${100 * items.length}% center`,
+            end: () => `center+=${150 * items.length}% center`,
             pin: ".pin-wrapper-first",
             pinSpacing: true,
             markers: false,
@@ -80,54 +84,46 @@ export default function cheese() {
         };
       });
     }
+    const wavesTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".catalog",
+        start: "top bottom",
+        markers: false,
+      },
+    });
 
-    const darkBlueLayer = element.querySelector(".cheese__darkblue-layer");
-    const pinkLayer = element.querySelector(".cheese__pink-layer");
-    const waves = element.querySelector(".cheese__waves");
-    const wavesImage = element.querySelector(".cheese__waves-image");
-
-    if (darkBlueLayer && pinkLayer && waves) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: element,
-          start: "bottom-=17% bottom",
-          markers: false,
-        },
-      });
-
-      tl.from(darkBlueLayer, {
+    wavesTl.from(darkBlueLayer, {
+      yPercent: -100,
+      duration: 0.7,
+      ease: "power2.out",
+    });
+    wavesTl.from(
+      pinkLayer,
+      {
         yPercent: -100,
         duration: 0.7,
         ease: "power2.out",
-      });
-      tl.from(
-        pinkLayer,
-        {
-          yPercent: -100,
-          duration: 0.7,
-          ease: "power2.out",
-        },
-        "<+=0.2"
-      );
-      tl.from(
-        waves,
-        {
-          yPercent: -100,
-          duration: 0.7,
-          ease: "power2.out",
-        },
-        "<+=0.2"
-      );
-      tl.from(
-        wavesImage,
-        {
-          scaleY: 0,
-          duration: 1.5,
-          transformOrigin: "center top",
-          ease: "expo.out",
-        },
-        "<"
-      );
-    }
+      },
+      "<+=0.2"
+    );
+    wavesTl.from(
+      waves,
+      {
+        yPercent: -100,
+        duration: 0.7,
+        ease: "power2.out",
+      },
+      "<+=0.2"
+    );
+    wavesTl.from(
+      wavesImage,
+      {
+        scaleY: 0,
+        duration: 1.5,
+        transformOrigin: "center top",
+        ease: "expo.out",
+      },
+      "<"
+    );
   });
 }

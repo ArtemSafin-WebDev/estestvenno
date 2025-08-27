@@ -22,6 +22,7 @@ export default function catalog() {
       new Swiper(container, {
         speed: 600,
         // autoHeight: true,
+        loop: true,
         modules: [Navigation, EffectFade, Pagination],
         navigation: {
           prevEl: slider.querySelector<HTMLButtonElement>(

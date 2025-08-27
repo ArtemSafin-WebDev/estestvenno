@@ -473,30 +473,22 @@
   position: relative;
 }
 .catalog__tab {
-  display: none;
-
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  transition: opacity 0.4s, visibility 0s linear 0.4s;
   &.active {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    visibility: inherit;
+    transition: opacity 0.4s, visibility 0.4s;
     display: block;
-  }
-
-  @include media.breakpoint(small-tablet) {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    z-index: 5;
-    opacity: 0;
-    visibility: hidden;
-    display: block;
-    transition: opacity 0.4s, visibility 0s linear 0.4s;
-    &.active {
-      position: relative;
-      z-index: 10;
-      opacity: 1;
-      visibility: inherit;
-      transition: opacity 0.4s, visibility 0.4s;
-      display: block;
-    }
   }
 }

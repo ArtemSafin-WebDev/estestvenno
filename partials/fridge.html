@@ -2,7 +2,10 @@
     <div class="fridge__content">
         <div class="fridge__stack">
             <div class="fridge__bg">
-                <img src="/images/fridge.webp" alt="" class="fridge__bg-image">
+                <picture>
+                    <source srcset="/images/fridge.webp" media="(max-width: 768px)" />
+                    <img src="/images/fridge-desktop.webp" alt="" class="fridge__bg-image">
+                </picture>
             </div>
 
             <div class="fridge__draggable">
@@ -53,9 +56,9 @@
                     <div class="fridge__photo" data-drag-item="">
                         <img src="/images/fridge-photo.webp" alt="" class="fridge__photo-image">
                     </div>
-                    <div class="fridge__message">
+                    {{!-- <div class="fridge__message">
                         Передвинь магнитики<br>прямо сейчас
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="fridge__text-content">

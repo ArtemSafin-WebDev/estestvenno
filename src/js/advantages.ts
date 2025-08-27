@@ -28,7 +28,7 @@ export default function advantages() {
           scrollTrigger: {
             trigger: slider,
             start: "center center",
-            end: () => `center+=${100 * items.length}% center`,
+            end: () => `center+=${400 * items.length}% center`,
             pin: ".pin-wrapper-second",
             pinSpacing: true,
             markers: false,
