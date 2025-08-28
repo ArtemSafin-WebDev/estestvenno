@@ -21,6 +21,8 @@ import forms from "./forms";
 import clearInputBtns from "./clearInputBtns";
 import fileUpload from "./fileUpload";
 import stickyCatalogNav from "./stickyCatalogNav";
+import cardsParallax from "./cardsParallax";
+import { debounce } from "lodash-es";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,9 +46,20 @@ document.addEventListener("DOMContentLoaded", () => {
   fileUpload();
   forms();
   clearInputBtns();
+  cardsParallax();
 });
 
 window.addEventListener("load", () => {
   ScrollTrigger.refresh();
   document.body.classList.add("loaded");
 });
+
+let viewportWidth = window.innerWidth;
+window.addEventListener(
+  "resize",
+  debounce(() => {
+    if (viewportWidth === window.innerWidth) return;
+    viewportWidth = window.innerWidth;
+    ScrollTrigger.refresh();
+  }, 500)
+);
