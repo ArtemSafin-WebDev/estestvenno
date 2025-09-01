@@ -2,25 +2,65 @@
 @use "utils";
 
 .contacts {
-  @include utils.blockWrapper;
   margin-bottom: 6.4rem;
+
+  &--with-cheese {
+    margin-bottom: 0;
+  }
 
   @include media.breakpoint(small-tablet) {
     margin-bottom: 4.8rem;
+    &--with-cheese {
+      margin-bottom: 0;
+    }
   }
 
   @include media.breakpoint(small-mobile) {
     margin-bottom: 3.2rem;
+    &--with-cheese {
+      margin-bottom: 0;
+    }
   }
+}
+
+.contacts__outer-wrapper {
+  @include utils.blockWrapper;
+
+  .contacts--with-cheese & {
+    background-color: #fc6;
+    padding: 9.6rem 0;
+    @include media.breakpoint(small-tablet) {
+      padding: 4.8rem 0;
+    }
+    @include media.breakpoint(small-mobile) {
+      padding: 2.4rem 0;
+    }
+  }
+}
+
+.contacts__cheese {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: -1px;
 }
 
 .contacts__content {
   @include utils.blockContent;
   display: flex;
   flex-direction: column;
+}
+
+.contacts__card {
   padding: 4.8rem;
   border-radius: 4.8rem;
   background: #fbf4e5;
+  display: flex;
+  flex-direction: column;
+
+  .contacts--cheese & {
+    background: #fff3d6;
+  }
   @include media.breakpoint(small-mobile) {
     padding: 2.4rem;
     border-radius: 2.4rem;
@@ -85,6 +125,7 @@
   line-height: 6.8rem;
   letter-spacing: -0.128rem;
   text-transform: uppercase;
+  margin-top: -1rem;
 
   @include media.breakpoint(small-tablet) {
     grid-column: 1 / -1;
@@ -94,6 +135,7 @@
     line-height: 5.6rem;
     letter-spacing: -0.104rem;
     text-transform: uppercase;
+    margin-top: 0;
   }
 
   @include media.breakpoint(small-mobile) {
@@ -123,7 +165,7 @@
 .contacts__list {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2.8rem;
 
   @include media.breakpoint(small-tablet) {
     gap: 3.2rem;
@@ -160,11 +202,11 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
-  font-size: 3.2rem;
+
+  font-size: 2.2rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 3.6rem;
-  letter-spacing: -0.064rem;
+  line-height: 2.6rem;
   font-family: var(--bebas);
 
   @media (hover: hover) and (pointer: fine) {
@@ -194,7 +236,7 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  margin-top: 0.2rem;
+  margin-top: -0.4rem;
 
   svg {
     fill: white;
@@ -215,7 +257,7 @@
   &::before {
     content: "";
     display: block;
-    padding-bottom: 110%;
+    padding-bottom: 77%;
     @include media.breakpoint(small-mobile) {
       padding-bottom: 100%;
     }

@@ -23,6 +23,8 @@ import fileUpload from "./fileUpload";
 import stickyCatalogNav from "./stickyCatalogNav";
 import cardsParallax from "./cardsParallax";
 import { debounce } from "lodash-es";
+import otherTastes from "./otherTastes";
+import product from "./product";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   forms();
   clearInputBtns();
   cardsParallax();
+  otherTastes();
+  product();
 });
 
 window.addEventListener("load", () => {

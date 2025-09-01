@@ -1,0 +1,43 @@
+@use "media";
+@use "utils";
+
+.breadcrumbs {
+  display: block;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.breadcrumbs__link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8rem;
+
+  svg {
+    flex-shrink: 0;
+    height: 1rem;
+    width: 0.8rem;
+    fill: var(--text-color);
+  }
+
+  &.active {
+    color: #8b86b1;
+    cursor: default;
+  }
+
+  &:not(.active) {
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--lightblue-color);
+      }
+    }
+  }
+}

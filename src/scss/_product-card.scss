@@ -6,6 +6,19 @@
   flex-direction: column;
   text-align: center;
 
+  .cards-open & {
+    .product-card__decor {
+      opacity: 1;
+      visibility: inherit;
+      transition: opacity 0.4s, visibility 0.4s, transform 0.6s;
+      transform: scale(1);
+    }
+
+    .product-card__shape svg {
+      fill: var(--accent-color, white);
+    }
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       .product-card__decor {
@@ -18,12 +31,6 @@
       .product-card__shape svg {
         fill: var(--accent-color, white);
       }
-
-      // .product-card__hot {
-      //   opacity: 1;
-      //   visibility: inherit;
-      //   transition: opacity 0.4s, visibility 0.4s;
-      // }
     }
   }
 }

@@ -11,12 +11,6 @@
   align-self: flex-end;
   display: flex;
   flex-direction: column;
-
-  @include media.breakpoint(small-tablet) {
-  }
-
-  @include media.breakpoint(small-mobile) {
-  }
 }
 
 .say-cheese__bg-image {
