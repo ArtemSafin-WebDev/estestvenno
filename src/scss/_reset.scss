@@ -234,3 +234,7 @@ picture,
 source {
   display: contents;
 }
+
+.swiper-pagination-bullets.swiper-pagination-lock {
+  display: none;
+}
