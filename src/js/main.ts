@@ -25,6 +25,8 @@ import cardsParallax from "./cardsParallax";
 import { debounce } from "lodash-es";
 import otherTastes from "./otherTastes";
 import product from "./product";
+import partners from "./partners";
+import partnersIntro from "./partnersIntro";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
   cardsParallax();
   otherTastes();
   product();
+  partners();
+  partnersIntro();
 });
 
 window.addEventListener("load", () => {

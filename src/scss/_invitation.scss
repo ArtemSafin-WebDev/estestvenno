@@ -1,0 +1,211 @@
+@use "media";
+@use "utils";
+
+.invitation {
+  @include utils.blockWrapper;
+  margin-bottom: 9.6rem;
+
+  @include media.breakpoint(small-mobile) {
+    margin-bottom: 4rem;
+  }
+}
+
+.invitation__content {
+  @include utils.blockContent;
+  display: flex;
+  flex-direction: column;
+  gap: 9.6rem;
+
+  @include media.breakpoint(small-tablet) {
+    gap: 8rem;
+  }
+  @include media.breakpoint(small-mobile) {
+    gap: 6.4rem;
+  }
+}
+
+.invitation__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 4.8rem;
+  @include media.breakpoint(small-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.2rem;
+    justify-content: center;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 2.4rem;
+  }
+}
+
+.invitation__card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "stack";
+  border-radius: 2.4rem;
+  background: #fff3d6;
+  color: var(--text-color);
+  &::before {
+    content: "";
+    display: block;
+    grid-area: stack;
+    padding-bottom: 100%;
+  }
+
+  @include media.breakpoint(small-tablet) {
+    width: calc(50% - 3.2rem / 2);
+  }
+
+  @include media.breakpoint(small-mobile) {
+    width: auto;
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.invitation__card-content {
+  grid-area: stack;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  gap: 2.4rem;
+}
+
+.invitation__card-title {
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 4.8rem;
+  font-family: var(--bebas);
+  letter-spacing: -0.096rem;
+  text-transform: uppercase;
+  @include media.breakpoint(small-tablet) {
+    font-size: 3.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 4rem;
+    letter-spacing: -0.072rem;
+    text-transform: uppercase;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.4rem;
+    letter-spacing: -0.06rem;
+    text-transform: uppercase;
+  }
+}
+
+.invitation__card-text {
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8rem;
+  margin-top: auto;
+}
+
+.invitation__image-card {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  position: relative;
+  -webkit-mask-image: url("../images/invitation-mask.svg");
+  mask-image: url("../images/invitation-mask.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @include media.breakpoint(small-tablet) {
+    width: calc(50% - 3.2rem / 2);
+  }
+
+  @include media.breakpoint(small-mobile) {
+    width: 100%;
+  }
+}
+
+.invitation__scroll-down {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 4.8rem;
+  @include media.breakpoint(small-tablet) {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+  }
+
+  @include media.breakpoint(small-mobile) {
+    display: block;
+  }
+}
+
+.invitation__scroll-down-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 3.6rem;
+  letter-spacing: -0.064rem;
+  font-family: var(--bebas);
+  color: white;
+  background-image: url("../images/scroll-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  text-align: center;
+  place-items: center;
+  position: relative;
+  grid-column: 2 / 3;
+  svg {
+    width: 3.2rem;
+    height: 3.2rem;
+    fill: currentColor;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 7.6rem;
+    @include media.breakpoint(small-tablet) {
+      bottom: 6.2rem;
+    }
+  }
+
+  @include media.breakpoint(small-tablet) {
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.2rem;
+    letter-spacing: -0.056rem;
+    width: calc(50% - 3.2rem / 2);
+  }
+
+  @include media.breakpoint(small-mobile) {
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.8rem;
+    letter-spacing: -0.048rem;
+    width: 100%;
+
+    svg {
+      bottom: 6.8rem;
+    }
+  }
+}

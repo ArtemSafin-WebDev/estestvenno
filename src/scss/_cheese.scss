@@ -34,7 +34,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  // margin-top: -30rem;
   margin-top: -21%;
   pointer-events: none;
 }
@@ -289,6 +288,16 @@
         width: 100%;
       }
     }
+
+    &--partners {
+      .swiper-slide {
+        &:first-child {
+          transform: none;
+          opacity: 1;
+          visibility: inherit;
+        }
+      }
+    }
   }
   @include media.breakpoint(small-mobile) {
     .swiper {
@@ -312,6 +321,11 @@
 
   @include media.breakpoint(small-mobile) {
     box-shadow: 0 0.8rem 3.2rem rgba(0, 32, 92, 0.32);
+
+    .cheese__slider--partners & {
+      box-shadow: none;
+      border-radius: 3.2rem;
+    }
   }
 }
 
@@ -328,7 +342,7 @@
   position: absolute;
   width: 26.8rem;
   height: auto;
-  z-index: 6;
+
   transform: translateY(-50%) rotate(-15deg);
   left: 0;
   top: 50%;
@@ -345,6 +359,24 @@
     margin-left: 1rem;
     margin-top: -3rem;
     transform: rotate(-15deg);
+  }
+
+  .cheese__slider-card--attention & {
+    width: 33.7rem;
+    transform: translateY(-50%) rotate(-15deg);
+    @include media.breakpoint(small-tablet) {
+      margin-left: -8rem;
+    }
+
+    @include media.breakpoint(small-mobile) {
+      transform: none;
+      width: 23rem;
+      margin: 0;
+      top: auto;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(-15deg);
+    }
   }
 
   .cheese__slider-card--save-world & {
