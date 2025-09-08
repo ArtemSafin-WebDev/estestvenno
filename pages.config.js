@@ -5,7 +5,6 @@ import product2 from "./pages-data/product-2";
 import product3 from "./pages-data/product-3";
 import product4 from "./pages-data/product-4";
 import product5 from "./pages-data/product-5";
-import partners from "./pages-data/partners";
 
 const pagesConfig = {
   ...home,

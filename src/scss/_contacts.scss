@@ -23,17 +23,46 @@
   }
 }
 
+.contacts__slogan {
+  width: 60rem;
+  height: auto;
+  margin-bottom: 15rem;
+  align-self: center;
+  justify-self: center;
+
+  @include utils.blockContent;
+  @include media.breakpoint(small-tablet) {
+    margin-bottom: 7rem;
+  }
+  @include media.breakpoint(small-mobile) {
+    width: 100%;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+}
+
 .contacts__outer-wrapper {
   @include utils.blockWrapper;
 
   .contacts--with-cheese & {
     background-color: #fc6;
     padding: 9.6rem 0;
+
     @include media.breakpoint(small-tablet) {
       padding: 4.8rem 0;
     }
     @include media.breakpoint(small-mobile) {
       padding: 2.4rem 0;
+    }
+  }
+
+  .contacts--with-cheese-two & {
+    padding-top: 0;
+    @include media.breakpoint(small-tablet) {
+      padding-top: 0;
+    }
+    @include media.breakpoint(small-mobile) {
+      padding-top: 0;
     }
   }
 }
@@ -218,11 +247,10 @@
   @include media.breakpoint(small-tablet) {
     flex-direction: column;
     gap: 0.8rem;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 3.2rem;
-    letter-spacing: -0.056rem;
+    line-height: 2.6rem;
   }
 }
 
