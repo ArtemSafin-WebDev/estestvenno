@@ -7,28 +7,37 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 export default function anchorScrolling() {
   const pageHeader = document.querySelector<HTMLElement>(".page-header");
 
-  // Create position lookup functions for both pinned containers
-  //@ts-ignore
-  let getPositionFirst = getScrollLookup("div, section", {
-    pinnedContainer: ".pin-wrapper-first",
-  });
+  // Check which pinned containers exist on this page
+  const firstWrapper = document.querySelector(".pin-wrapper-first");
+  const secondWrapper = document.querySelector(".pin-wrapper-second");
 
-  //@ts-ignore
-  let getPositionSecond = getScrollLookup("div, section", {
-    pinnedContainer: ".pin-wrapper-second",
-  });
+  // Create position lookup functions only for existing pinned containers
+  let getPositionFirst: ((element: Element) => number) | null = null;
+  let getPositionSecond: ((element: Element) => number) | null = null;
+
+  if (firstWrapper) {
+    //@ts-ignore
+    getPositionFirst = getScrollLookup("section", {
+      pinnedContainer: ".pin-wrapper-first",
+    });
+  }
+
+  if (secondWrapper) {
+    //@ts-ignore
+    getPositionSecond = getScrollLookup("section", {
+      pinnedContainer: ".pin-wrapper-second",
+    });
+  }
 
   // Function to determine which pinned container an element belongs to
   function getElementPosition(element: Element): number {
     // Check if element is inside pin-wrapper-first
-    const firstWrapper = document.querySelector(".pin-wrapper-first");
-    if (firstWrapper && firstWrapper.contains(element)) {
+    if (firstWrapper && firstWrapper.contains(element) && getPositionFirst) {
       return getPositionFirst(element);
     }
 
     // Check if element is inside pin-wrapper-second
-    const secondWrapper = document.querySelector(".pin-wrapper-second");
-    if (secondWrapper && secondWrapper.contains(element)) {
+    if (secondWrapper && secondWrapper.contains(element) && getPositionSecond) {
       return getPositionSecond(element);
     }
 
