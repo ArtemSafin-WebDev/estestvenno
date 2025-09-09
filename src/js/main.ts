@@ -27,6 +27,7 @@ import otherTastes from "./otherTastes";
 import product from "./product";
 import partners from "./partners";
 import partnersIntro from "./partnersIntro";
+import anchorScrolling from "./anchorScrolling";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   product();
   partnersIntro();
   partners();
+  anchorScrolling();
 });
 
 window.addEventListener("load", () => {

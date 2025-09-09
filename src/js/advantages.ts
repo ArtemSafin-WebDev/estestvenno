@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Swiper from "swiper";
-import { Autoplay, EffectFade, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 gsap.registerPlugin(ScrollTrigger);
