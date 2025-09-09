@@ -56,5 +56,37 @@ export default function partners() {
         instance.destroy();
       };
     });
+
+    const wavesTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".contacts--with-cheese-two",
+        start: "top bottom+=35%",
+      },
+    });
+
+    wavesTl.from(".partners__darkblue-layer", {
+      yPercent: -100,
+      duration: 0.7,
+      ease: "power2.out",
+    });
+    wavesTl.from(
+      ".partners__pink-layer",
+      {
+        yPercent: -100,
+        duration: 0.7,
+        ease: "power2.out",
+      },
+      "<+=0.2"
+    );
+    wavesTl.from(
+      ".contacts__cheese",
+      {
+        scaleY: 0,
+        duration: 1.5,
+        transformOrigin: "center bottom",
+        ease: "expo.out",
+      },
+      "<"
+    );
   });
 }

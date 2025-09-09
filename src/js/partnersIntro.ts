@@ -15,10 +15,6 @@ export default function partnersIntro() {
     let mm = gsap.matchMedia();
     const slider = element.querySelector(".cheese__slider");
     const container = element.querySelector<HTMLElement>(".swiper");
-    const darkBlueLayer = element.querySelector(
-      ".partners-intro__darkblue-layer"
-    );
-    const pinkLayer = element.querySelector(".partners-intro__pink-layer");
 
     if (slider && container) {
       mm.add("(min-width: 577px)", () => {
@@ -85,27 +81,5 @@ export default function partnersIntro() {
         };
       });
     }
-    const wavesTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".catalog",
-        start: "top bottom",
-        markers: false,
-      },
-    });
-
-    wavesTl.from(darkBlueLayer, {
-      yPercent: -100,
-      duration: 0.7,
-      ease: "power2.out",
-    });
-    wavesTl.from(
-      pinkLayer,
-      {
-        yPercent: -100,
-        duration: 0.7,
-        ease: "power2.out",
-      },
-      "<+=0.2"
-    );
   });
 }

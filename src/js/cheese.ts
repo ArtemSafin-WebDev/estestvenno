@@ -87,7 +87,7 @@ export default function cheese() {
     const wavesTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".catalog",
-        start: "top bottom",
+        start: "top bottom+=35%",
         markers: false,
       },
     });

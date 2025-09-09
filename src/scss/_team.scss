@@ -141,6 +141,13 @@
     transform: scale(0);
   }
 
+  &.swiper-button-disabled {
+    svg {
+      fill: #8b86b1;
+      cursor: default;
+    }
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:not(.swiper-button-disabled):hover {
       &::before {

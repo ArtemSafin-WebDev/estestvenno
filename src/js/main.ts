@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
   cardsParallax();
   otherTastes();
   product();
-  partners();
   partnersIntro();
+  partners();
 });
 
 window.addEventListener("load", () => {

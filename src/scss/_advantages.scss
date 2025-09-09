@@ -247,7 +247,7 @@
     margin-bottom: 12rem;
   }
   @include media.breakpoint(small-mobile) {
-    margin-bottom: 7rem;
+    margin-bottom: 9rem;
     color: white;
   }
 }
@@ -296,46 +296,7 @@
   }
 
   @include media.breakpoint(small-mobile) {
-    margin-bottom: 4rem;
-  }
-}
-
-.advantages__shops-image {
-  height: auto;
-  width: 18rem;
-  transform: rotate(15deg);
-  @include media.breakpoint(small-tablet) {
-    width: 12rem;
-  }
-}
-
-.advantages__shops-slider {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 16rem;
-  position: relative;
-  @include media.breakpoint(small-tablet) {
-    max-width: 12rem;
-  }
-}
-
-.advantages__shops-slider-card {
-  display: block;
-  aspect-ratio: 16 / 8;
-  position: relative;
-  width: 100%;
-}
-
-.advantages__shops-slider-card-image {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-
-  &--rotated {
-    transform: rotate(-10deg);
+    margin-bottom: 3rem;
   }
 }
 
@@ -361,5 +322,36 @@
         background-color: var(--text-color);
       }
     }
+  }
+}
+
+.advantages__shops-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  @include media.breakpoint(small-mobile) {
+    gap: 1rem;
+  }
+}
+
+.advantages__shops-list-item {
+  &:nth-child(1) {
+    transform: rotate(10deg);
+  }
+  &:nth-child(2) {
+    transform: rotate(-10deg);
+  }
+}
+
+.advantages__shops-image {
+  display: block;
+  width: auto;
+  height: 8rem;
+  @include media.breakpoint(small-tablet) {
+    height: 4.8rem;
+  }
+  @include media.breakpoint(small-mobile) {
+    height: 4rem;
   }
 }

@@ -256,6 +256,9 @@
   letter-spacing: -0.0595rem;
   display: block;
   margin-bottom: 1.6rem;
+  & + .vacancies__card-hr-email {
+    margin-top: -0.7rem;
+  }
   &::after {
     content: attr(data-text);
     position: absolute;
@@ -400,9 +403,11 @@
   }
 
   &.swiper-button-disabled {
-    cursor: default;
+    svg {
+      fill: #8b86b1;
+      cursor: default;
+    }
   }
-
   &--prev {
     left: 2.4rem;
   }

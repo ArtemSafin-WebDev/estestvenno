@@ -53,11 +53,9 @@ export default function advantages() {
     });
     if (slider && container)
       mm.add("(max-width: 576px)", () => {
-        console.log("Intialising slider");
         const instance = new Swiper(container, {
           speed: 600,
           modules: [Pagination],
-          // autoHeight: true,
           pagination: {
             el: slider.querySelector<HTMLElement>(
               ".advantages__slider-pagination"
@@ -65,37 +63,11 @@ export default function advantages() {
             type: "bullets",
             clickable: true,
           },
-          // on: {
-          //   slideChangeTransitionEnd: () => {
-          //     ScrollTrigger.refresh();
-          //   },
-          // },
         });
 
         return () => {
           instance.destroy();
         };
       });
-
-    const shopsSlider = element.querySelector<HTMLElement>(
-      ".advantages__shops-slider .swiper"
-    );
-
-    if (shopsSlider) {
-      new Swiper(shopsSlider, {
-        speed: 600,
-        modules: [Autoplay, EffectFade],
-        effect: "fade",
-        allowTouchMove: false,
-        loop: true,
-        fadeEffect: {
-          crossFade: true,
-        },
-        autoplay: {
-          delay: 600,
-          disableOnInteraction: false,
-        },
-      });
-    }
   });
 }
