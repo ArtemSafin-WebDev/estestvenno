@@ -28,11 +28,14 @@ import product from "./product";
 import partners from "./partners";
 import partnersIntro from "./partnersIntro";
 import anchorScrolling from "./anchorScrolling";
+import partnersLoading from "./partnersLoading";
+import homeLoading from "./homeLoading";
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
   smoothScrolling();
+
   fixedHeader();
   intro();
   cheese();
@@ -57,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
   partnersIntro();
   partners();
   anchorScrolling();
+  partnersLoading();
+  homeLoading();
 });
 
 window.addEventListener("load", () => {
