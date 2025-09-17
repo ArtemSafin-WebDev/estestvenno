@@ -30,6 +30,9 @@ export default function forms() {
           })
           .then((res) => {
             console.log(res.data);
+            //@ts-ignore
+            _targetadsTag('event', {"event_name":"Forma_Lead","event_type":"Lead","event_category":"Lead"});
+
             const parentModal = form.closest<HTMLElement>(".js-modal");
             parentModal?.classList.remove("active");
             const modal = document.querySelector<HTMLElement>("#success-modal");

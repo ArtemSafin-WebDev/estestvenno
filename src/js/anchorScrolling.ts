@@ -66,7 +66,7 @@ export default function anchorScrolling() {
         history.replaceState({}, "", hash);
 
         gsap.to(window, {
-          duration: 1.5,
+          duration: 0,
           ease: "power2.out",
           scrollTo: {
             y: getElementPosition(element),
@@ -89,7 +89,7 @@ export default function anchorScrolling() {
         if (element.matches(".js-modal")) return;
         document.body.classList.remove("menu-open");
         gsap.to(window, {
-          duration: 0.4,
+          duration: 0,
           ease: "none",
           scrollTo: {
             y: getElementPosition(element),
