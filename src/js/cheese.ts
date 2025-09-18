@@ -104,7 +104,7 @@ export default function cheese() {
         duration: 0.7,
         ease: "power2.out",
       },
-      "<+=0.2"
+      "-=0.2"
     );
     wavesTl.from(
       waves,
@@ -113,7 +113,7 @@ export default function cheese() {
         duration: 0.7,
         ease: "power2.out",
       },
-      "<+=0.2"
+      "-=0.2"
     );
     wavesTl.from(
       wavesImage,
