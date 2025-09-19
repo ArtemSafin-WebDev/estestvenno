@@ -22,7 +22,7 @@ export default function advantages() {
     const container = slider?.querySelector<HTMLElement>(
       ".advantages__slider .swiper"
     );
-    mm.add("(min-width: 577px)", () => {
+    mm.add("(min-width: 577px) and (max-width: 768px)", () => {
       if (items.length > 1) {
         const tl = gsap.timeline({
           scrollTrigger: {

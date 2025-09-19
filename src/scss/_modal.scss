@@ -417,3 +417,71 @@ textarea.modal__form-input {
     fill: var(--text-color);
   }
 }
+.modal__policy {
+  margin-top: 1.2rem;
+  .validation-error {
+    display: none;
+  }
+  &:has(.validation-error) {
+    .modal__policy-checkbox-mark {
+      border-color: var(--red);
+    }
+  }
+}
+
+.modal__policy-checkbox {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s;
+    text-underline-offset: 1px;
+
+    &:hover {
+      text-decoration-color: transparent;
+    }
+  }
+}
+
+.modal__policy-checkbox-input {
+  display: none;
+}
+
+.modal__policy-checkbox-mark {
+  flex-shrink: 0;
+  border-radius: 0.4rem;
+  border: 1px solid #1c1456;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+  transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
+
+  svg {
+    opacity: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: white;
+    transition: opacity 0.2s;
+  }
+
+  .modal__policy-checkbox-input:checked ~ & {
+    background: #009ee3;
+    border-color: #009ee3;
+    box-shadow: -0.2rem -0.2rem 0.8rem 0 #006996 inset,
+      0.2rem 0.2rem 0.8rem 0 #80d8ff inset;
+    svg {
+      opacity: 1;
+    }
+  }
+}
