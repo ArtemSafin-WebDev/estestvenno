@@ -101,13 +101,16 @@
   pointer-events: none;
 
   @include media.breakpoint(small-tablet) {
-    margin-top: 5rem;
+    margin-top: -2rem;
+    margin-right: -16rem;
   }
 
   @include media.breakpoint(small-mobile) {
     width: 13.2rem;
-    margin-right: 0;
-    margin-top: 9rem;
+    bottom: -5.5rem;
+    top: auto;
+    margin: 0;
+    margin-right: -3rem;
   }
 }
 

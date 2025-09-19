@@ -482,7 +482,20 @@
   }
 
   @include media.breakpoint(small-mobile) {
-    zoom: 0.55;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 0.6812rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.6812rem;
+    letter-spacing: -0.0136rem;
+
+    span {
+      font-size: 1.8734rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 85%;
+    }
   }
 }
 
@@ -517,7 +530,18 @@
     flex-shrink: 0;
   }
   @include media.breakpoint(small-mobile) {
-    zoom: 0.55;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 0.6812rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.6812rem;
+    letter-spacing: -0.0136rem;
+
+    &::before {
+      width: calc(4.8438rem / 2);
+      height: calc(3.125rem / 2);
+    }
   }
 }
 .product__slider-card-love {
@@ -551,7 +575,18 @@
     flex-shrink: 0;
   }
   @include media.breakpoint(small-mobile) {
-    zoom: 0.55;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 0.6812rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.6812rem;
+    letter-spacing: -0.0136rem;
+
+    &::before {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
   }
 }
 
@@ -617,7 +652,20 @@
     margin-top: -1rem;
   }
   @include media.breakpoint(small-mobile) {
-    zoom: 0.55;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 0.6812rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.6812rem;
+    letter-spacing: -0.0136rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      margin-bottom: -0.2rem;
+      margin-top: -0.5rem;
+    }
   }
 }
 
