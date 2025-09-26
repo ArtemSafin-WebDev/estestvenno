@@ -30,8 +30,6 @@ export default function forms() {
           })
           .then((res) => {
             console.log(res.data);
-            //@ts-ignore
-            // _targetadsTag('event', {"event_name":"Forma_Lead","event_type":"Lead","event_category":"Lead"});
 
             const parentModal = form.closest<HTMLElement>(".js-modal");
             parentModal?.classList.remove("active");
@@ -48,6 +46,12 @@ export default function forms() {
               const goalValue = form.dataset.goal;
               //@ts-ignore
               ym(104213365,'reachGoal',goalValue);
+            }
+
+            if (form.hasAttribute('data-event')){
+              const eventValue = form.dataset.event;
+              //@ts-ignore
+              _targetadsTag('event', {"event_name":eventValue,"event_type":"lead","event_category":"lead"});
             }
 
           })
