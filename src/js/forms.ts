@@ -43,6 +43,13 @@ export default function forms() {
             if (form) {
               form.reset();
             }
+
+            if (form.hasAttribute('data-goal')){
+              const goalValue = form.dataset.goal;
+              //@ts-ignore
+              ym(104213365,'reachGoal',goalValue);
+            }
+
           })
           .catch((err) => {
             console.error(err);
